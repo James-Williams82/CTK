@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>CraftersToolkit</title>
+    <title>CTK_Production</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
-  <body class="dark">
+  <body class="light">
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
     </div>
@@ -23,22 +23,22 @@
     </div>
     <div id="unity-fullscreen-button" style="display: none;"></div>
     <script>
-      const hideFullScreenButton = "1";
+      const hideFullScreenButton = "";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/CTK.loader.js";
+      const loaderUrl = buildUrl + "/WebGL.loader.js";
       const config = {
-        dataUrl: buildUrl + "/CTK.data",
-        frameworkUrl: buildUrl + "/CTK.framework.js",
-        codeUrl: buildUrl + "/CTK.wasm",
+        dataUrl: buildUrl + "/WebGL.data.br",
+        frameworkUrl: buildUrl + "/WebGL.framework.js.br",
+        codeUrl: buildUrl + "/WebGL.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "TitanARXInteractive",
-        productName: "CraftersToolkit",
-        productVersion: "0.1.0",
+        companyName: "Crafters Toolkit",
+        productName: "CTK_Production",
+        productVersion: "0.2.0",
       };
 
       const container = document.querySelector("#unity-container");
-
       var gameInstance = null;
+
       const canvas = document.querySelector("#unity-canvas");
       const loadingCover = document.querySelector("#loading-cover");
       const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
@@ -75,8 +75,8 @@
           progressBarEmpty.style.display = "";
           progressBarFull.style.width = `${100 * progress}%`;
         }).then((unityInstance) => {
-
           gameInstance = unityInstance;
+
           loadingCover.style.display = "none";
           if (canFullscreen) {
             if (!hideFullScreenButton) {
